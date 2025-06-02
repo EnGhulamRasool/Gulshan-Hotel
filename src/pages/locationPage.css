@@ -150,7 +150,40 @@ a:hover {
 
 
 
+.container {
+  width: 100%;
+  max-width: 1440px; /* Added maximum width for very large screens */
+  margin: 0 auto;
+ padding: 0px 14px !important;
+}
 
+/* For large screens (992px and up) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 92%; /* Relative width for large screens */
+  }
+}
+
+/* For medium screens (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 95%; /* Slightly more width than large screens */
+  }
+}
+
+/* For small screens (467px to 767px) */
+@media (max-width: 767px) {
+  .container {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+}
+
+/* For extra small screens (below 467px) */
+@media (max-width: 467px) {
+  .container {
+    padding: 0 15px; /* Slightly reduced padding on very small screens */
+  }
+}
 
 
 
@@ -418,17 +451,10 @@ input, textarea, select {
   transition: all 0.3s ease;
   font-size: 1rem;
 }
-.container {
-  max-width: 92%; /* Fixed width */
 
-}
 
 @media(max-width: 467px){
-  .container {
-  max-width: 100% !important; /* Fixed width */
-  margin: 0 auto;
-  padding: 0 0px;
-}
+
 .image-overlay {
     position: absolute;
     top: 0;
@@ -482,12 +508,13 @@ input, textarea, select {
 }
 
 
-/* Main Container */
-.location-details-container {
-  width: 100%;
-  padding: 1rem;
-}
 
+
+
+@media (max-width: 768px) {
+.location-details-container {        padding: 60px 0;
+    }
+}
 
 
 /* Location Row Styles */

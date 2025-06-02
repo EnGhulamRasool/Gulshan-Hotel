@@ -1,0 +1,288 @@
+/* Base Styles */
+:root {
+  --primary-color: #2e7d32;
+  --secondary-color:rgb(209, 73, 58);
+  --accent-color: #000000;
+  --whatsapp-color: #25d366;
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+  --medium-gray: #e0e0e0;
+  --dark-gray: #777;
+      --section-first-color: white;
+  --section-second-color: #f5f5f5;
+}
+
+.main-content, .rental-header, .rentals-section{
+  background-color: var(--section-first-color);
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-gray);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+.rental-header {
+     /* background-color: white; */
+    padding: 117px 0 0 0;
+    text-align: center;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 30px;
+}
+
+.rental-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  /* color: var(--primary-color); */
+  margin-bottom: 15px;
+}
+
+.header-description {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--dark-gray);
+  font-size: 16px;
+}
+
+/* Vehicles Section */
+.section-headers {
+  text-align: center;
+} 
+
+.section-headers h2 {
+  font-size: 24px;
+  /* color: var(--primary-color); */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-headers h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.vehicle-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+ box-shadow: 0 5px 15px rgb(195 195 195 / 47%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-image-container {
+  width: 100%;
+  /* height: 200px; */
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.vehicle-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover .vehicle-image {
+  transform: scale(1.05);
+}
+
+.vehicle-info {
+padding: 6px 24px;
+}
+
+.vehicle-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.vehicle-location {
+  font-size: 14px;
+  color: var(--dark-gray);
+  margin-bottom: 5px;
+}
+
+
+.vehicle-handle {
+  font-size: 14px;
+      color: var(--dark-gray);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.pricing {
+  margin: 20px 0;
+  border-top: 1px dashed var(--medium-gray);
+  border-bottom: 1px dashed var(--medium-gray);
+  padding: 15px 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.price-row:last-child {
+  margin-bottom: 0;
+}
+
+.price-row span {
+  color: var(--dark-gray);
+}
+
+.price-row strong {
+  color: var(--primary-color);
+}
+
+.vehicle-description {
+  color: var(--dark-gray);
+  font-size: 14px;
+  margin: 15px 0 20px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.call-button, .whatsapp-button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.call-button {
+  background-color: #000000;
+  color: white;
+}
+
+.call-button:hover {
+  background-color: #2980b9;
+}
+
+.whatsapp-button {
+  background-color: var(--whatsapp-color);
+  color: white;
+}
+
+.whatsapp-button:hover {
+  background-color: #1da851;
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.scroll-top:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rental-header {
+    padding: 30px 0;
+  }
+  
+  .rental-header h1 {
+    font-size: 22px;
+  }
+  
+  .header-description {
+    font-size: 14px;
+  }
+  
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .vehicle-image-container {
+    height: 180px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .vehicle-info {
+    padding: 20px;
+  }
+  
+  .vehicle-name {
+    font-size: 18px;
+  }
+  
+  .scroll-top {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

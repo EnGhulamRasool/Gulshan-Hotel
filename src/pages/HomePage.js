@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {  FaUtensils, FaTv, FaCoffee, FaParking, FaSnowflake } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
+import WhatsAppFeature from "../components/WhatsAppFeature";
+
+import {
+  FaUtensils,
+  FaTv,
+  FaCoffee,
+  FaParking,
+  FaSnowflake,
+} from "react-icons/fa";
 
 import {
   FaBed,
@@ -22,7 +33,7 @@ const guestHouseImage =
 
 const HomePage = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.querySelector(".hero-section");
@@ -37,187 +48,119 @@ const HomePage = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
- 
-  // const rooms = [
-  //   {
-  //     id: 1,
-  //     title: "Deluxe Bedroom",
-  //     description:
-  //       "A cozy yet elegant room with modern amenities and a serene ambiance.",
-  //     price: "Rs. 8,000 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Premium Bedroom",
-  //     description:
-  //       "A spacious room with elegant décor and top-class amenities for a memorable stay.",
-  //     price: "Rs. 9,500 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Luxury Suite",
-  //     description:
-  //       "Indulge in absolute luxury with panoramic views, premium furnishings, and a private balcony.",
-  //     price: "Rs. 12,000 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Executive Room",
-  //     description:
-  //       "Perfect for business travelers with a dedicated workspace and premium amenities.",
-  //     price: "Rs. 10,500 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Family Suite",
-  //     description:
-  //       "Spacious accommodation for families with separate living and sleeping areas.",
-  //     price: "Rs. 15,000 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Honeymoon Suite",
-  //     description:
-  //       "Romantic retreat with special amenities for newlyweds and couples.",
-  //     price: "Rs. 18,000 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  //   {
-  //     id: 7,
-  //     title: "Standard Room",
-  //     description:
-  //       "Comfortable and affordable option with all essential amenities.",
-  //     price: "Rs. 7,000 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1598928636135-d146006ff4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  //   {
-  //     id: 8,
-  //     title: "Presidential Suite",
-  //     description:
-  //       "Ultimate luxury experience with premium services and expansive space.",
-  //     price: "Rs. 25,000 PKR",
-  //     image:
-  //       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-  //   },
-  // ];
-const roomImages = [
-    "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Deluxe
-    "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Premium
-    "https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Luxury
-    "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Standard
-    "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Executive
-    "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" , // Family
-        "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Executive
-    "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"  // Family
+
+  const roomImages = [
+    "images/Rooms/Deluxe1.jpeg",
+    "images/Rooms/Deluxe2.jpeg",
+    "images/Rooms/Deluxe3.jpeg",
+    "images/Rooms/Deluxe4.jpeg",
+    "images/Rooms/standard1.jpeg",
+    "images/Rooms/standard2.jpeg",
+    "images/Rooms/standard1.jpeg",
+    "images/Rooms/standard1.jpeg",
   ];
 
-  const bannerImage = "https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
+  const bannerImage =
+    "https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
 
-  const roomTypes = [
-    {
-      type: "Deluxe Room",
-      price: "10,000 PKR",
-      description: "A cozy yet elegant room with modern amenities and a serene ambience.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    },
-    {
-      type: "Deluxe Room",
-      price: "10,000 PKR",
-      description: "Spacious room with elegant décor and top-class amenities for a memorable stay.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    },
-    {
-      type: "Deluxe Room",
-      price: "10,000 PKR",
-      description: "Indulge in luxury with panoramic views, premium furnishings, and a private balcony.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    },
-    {
-      type: "Deluxe Room",
-      price: "10,000 PKR",
-      description: "A well-equipped and budget-friendly room for comfortable stays.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    },
-    {
-      type: "Standard Room",
-      price: "8,000 PKR",
-      description: "Designed for business travelers, offering workspace and premium comfort.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    },
-    {
-      type: "Standard Room",
-      price: "8,000 PKR",
-      description: "Spacious and cozy, perfect for families looking for a home like stay.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    },
-      {
-      type: "Standard Room",
-      price: "8,000 PKR",
-      description: "Designed for business travelers, offering workspace and premium comfort.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    },
-    {
-      type: "Standard Room",
-      price: "8,000 PKR",
-      description: "Spacious and cozy, perfect for families looking for a home like stay.",
-      includes: ["Breakfast for 2", "Free WiFi", "TV", "Parking"],
-      icon: <FaBed />
-    }
-  ];
+const roomTypes = [
+  {
+    type: "Lake View Deluxe",
+    price: "10,000 PKR",
+    description: "Breathtaking Kachura Lake views with luxury amenities. Perfect romantic getaway in Skardu's best location...",
+    includes: ["Breakfast", "WiFi", "TV", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  },
+  {
+    type: "Mountain View Suite",
+    price: "12,000 PKR",
+    description: "Panoramic Karakoram mountain views from private balcony. Cozy yet elegant Skardu accommodation...",
+    includes: ["Breakfast", "WiFi", "AC", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  },
+  {
+    type: "Family Connector",
+    price: "15,000 PKR",
+    description: "Two interconnected rooms for families. Child-friendly amenities near Kachura Lake attractions...",
+    includes: ["Breakfast", "WiFi", "2 TVs", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  },
+  {
+    type: "Business Executive",
+    price: "9,500 PKR",
+    description: "Productivity-focused room with workspace. High-speed WiFi for Skardu business travelers...",
+    includes: ["Breakfast", "WiFi", "Desk", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  },
+  {
+    type: "Honeymoon Suite",
+    price: "13,500 PKR",
+    description: "Romantic decor with king bed. Special amenities for couples in Skardu...",
+    includes: ["Champagne", "Flowers", "Spa", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  },
+  {
+    type: "Economy Standard",
+    price: "7,500 PKR",
+    description: "Budget-friendly option with essentials. Great value near Kachura Lake...",
+    includes: ["WiFi", "TV", "Fan", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  },
+  {
+    type: "Premium Deluxe",
+    price: "11,000 PKR",
+    description: "Spacious room with luxury finishes. Best panoramic views in Skardu...",
+    includes: ["Breakfast", "WiFi", "Minibar", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  },
+  {
+    type: "Accessible Room",
+    price: "8,500 PKR",
+    description: "Wheelchair-accessible accommodation. All amenities adapted for comfort...",
+    includes: ["Breakfast", "WiFi", "TV", "Parking"],
+    icon: <FaBed />,
+    colSpan: 1
+  }
+];
+
   const LOCATIONS = [
     {
       id: 1,
-      name: "Gulshan Hotel Kachura - Naran",
+      name: "Gulshan Hotel Kachura - Shangrila",
       description:
-        "Located in the heart of Naran Valley with stunning views of the Kunhar River and close to popular attractions.",
-      image:
-        "https://images.unsplash.com/photo-1596436889106-be35e843f974?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "Nestled in the majestic Hunza Valley with panoramic views of Rakaposhi and Ultar Sar peaks.",
+      image: "images/Kachura/kachura-3.jpeg",
       link: "#naran",
     },
     {
       id: 2,
-      name: "Gulshan Hotel Kachura - Hunza",
+      name: "Gulshan Hotel Kachura - Sadpara",
       description:
         "Nestled in the majestic Hunza Valley with panoramic views of Rakaposhi and Ultar Sar peaks.",
-      image:
-        "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image: "images/Skardu/skd-3.jpeg",
       link: "#hunza",
     },
     {
       id: 3,
-      name: "Gulshan Hotel Kachura - Skardu",
+      name: "Gulshan Hotel Kachura - Kachura Upper Lake",
       description:
         "Overlooking the mighty Indus River with easy access to Shangrila Resort and Deosai Plains.",
-      image:
-        "https://images.unsplash.com/photo-1566647387313-9fda80664848?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image: "images/Kachura/kachura-1.jpeg",
       link: "#skardu",
     },
     {
       id: 4,
-      name: "Gulshan Hotel Kachura - Swat",
+      name: "Gulshan Hotel Kachura - Sarfaranga",
       description:
         "Situated in the Switzerland of Pakistan with lush green valleys and crystal clear rivers.",
-      image:
-        "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image: "images/shigar/shigar-2.jpeg",
       link: "#swat",
     },
   ];
@@ -243,11 +186,7 @@ const roomImages = [
       title: "Prime Location",
       description: "Easy access to major attractions",
     },
-    {
-      icon: <FaTshirt />,
-      title: "Laundry Services",
-      description: "Keep your clothes fresh",
-    },
+
     {
       icon: <FaStar />,
       title: "Luxury Rooms",
@@ -257,8 +196,6 @@ const roomImages = [
 
   return (
     <div className="guest-house-home">
-      
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-overlay"></div>
         <motion.div
@@ -288,13 +225,27 @@ const roomImages = [
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <button className="primary-btn">Book Now</button>
-            <button className="secondary-btn">Explore Rooms</button>
+            <button
+              className="primary-btn"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/923425577821?text=Hello%20Gulshan%20Hotel%20Kachura,%20I%27m%20interested%20in%20booking%20a%20room%20or%20tour%20package.%20Could%20you%20please%20share%20availability%20and%20details%3F",
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
+            >
+              Book Now
+            </button>
+            <Link to="/room" className="secondary-btn">
+              Explore Rooms
+            </Link>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* About Section */}
+
+      
       <section className="guest-house-section">
         <div className="container">
           <div className="two-column-container">
@@ -327,7 +278,16 @@ const roomImages = [
                   </div>
                 </div>
               </div>
-              <button className="cta-button">
+              <button
+                className="cta-button"
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/923425577821?text=Hello%20Gulshan%20Hotel%20Kachura%2C%20I%27d%20like%20to%20book%20a%20stay.%20Could%20you%20please%20share%3A%0A%0A1.%20Availability%20for%20my%20dates%0A2.%20Room%20types%20and%20rates%0A3.%20Any%20current%20packages%20or%20offers%3F",
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
                 Book Your Stay <FaArrowRight />
               </button>
             </motion.div>
@@ -347,8 +307,6 @@ const roomImages = [
           </div>
         </div>
       </section>
-
-      {/* Family Rooms Section */}
       <section className="family-rooms-section">
         <div className="container">
           <div className="two-column-container">
@@ -360,7 +318,7 @@ const roomImages = [
               transition={{ duration: 0.8 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                src="images/Rooms/standard1.jpeg"
                 alt="Family Room at Gulshan Hotel Kachura"
                 className="family-room-image"
               />
@@ -382,14 +340,14 @@ const roomImages = [
                 We maintain a family-oriented atmosphere, prohibiting unmarried
                 couples, alcohol, and illegal activities for your peace of mind.
               </p>
-              <button className="cta-button">
-                Book Now <FaArrowRight />
-              </button>
+
+              <Link to="/room" className="cta-button">
+                Explore Rooms
+              </Link>
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* Why Choose Us Section */}
       <section className="why-choose-us-section">
         <div className="container">
@@ -421,7 +379,6 @@ const roomImages = [
         </div>
       </section>
 
-      {/* Locations Section */}
       <section className="locations-section">
         <div className="container">
           <motion.h2
@@ -456,9 +413,24 @@ const roomImages = [
                 <div className="location-content">
                   <h3>{location.name}</h3>
                   <p>{location.description}</p>
-                  <div className="location-actions">
-                    <a href={location.link}>Learn More</a>
-                    <button className="cta-button">Book Now</button>
+                  <div className="action-buttons">
+                    <button
+                      className="call-button"
+                      onClick={() => navigate("/contact")} // Redirect to contact page
+                    >
+                      <i className="fas fa-phone"></i> Book Now
+                    </button>
+                    <button
+                      className="cta-button"
+                      onClick={() =>
+                        window.open(
+                          "https://wa.me/923425577821?text=Hello%20Gulshan%20Hotel%20Kachura,%20I'm%20interested%20in%20booking%20a%20room%20or%20tour%20package.%20Could%20you%20please%20share%20availability%20and%20details?",
+                          "_blank"
+                        )
+                      } // Open WhatsApp in new tab
+                    >
+                      <i className="fab fa-whatsapp"></i> WhatsApp
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -467,106 +439,83 @@ const roomImages = [
         </div>
       </section>
 
-      {/* Rooms Section */}
-      {/* <section className="rooms-section">
+      <section className="rooms-container">
         <div className="container">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Our Rooms
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Luxurious and affordable accommodations tailored to your needs.
-          </motion.p>
+          <div className="section-header">
+            <h1>LUXURIOUS & AFFORDABLE ROOMS IN SKARDU NEAR KACHURA LAKE</h1>
+            <p>
+              Experience the best hotel accommodation in Skardu with stunning
+              views of Kachura Lake and the Karakoram mountains. Our rooms
+              combine modern comfort with traditional hospitality for an
+              unforgettable stay.
+            </p>
+          </div>
+
           <div className="rooms-grid">
-            {rooms.map((room, index) => (
+            {roomTypes.map((room, index) => (
               <motion.div
-                key={room.id}
                 className="room-card"
-                whileHover={{ scale: 1.03 }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <img src={room.image} alt={room.title} />
+                <div className="room-image">
+                  <img src={roomImages[index]} alt={room.type} loading="lazy" />
+                </div>
                 <div className="room-content">
-                  <h3>{room.title}</h3>
-                  <p>{room.description}</p>
+                  <div className="room-type">
+                    <span className="room-icon">{room.icon}</span>
+                    <h3>{room.type}</h3>
+                  </div>
+                  <p className="room-description">{room.description}</p>
+
+                  <div className="room-includes">
+                    <h4>Includes:</h4>
+
+                    <ul>
+                      {room.includes.map((item, i) => (
+                        <li key={i}>
+                          {item.includes("Breakfast") && <FaUtensils />}
+                          {item.includes("WiFi") && <FaWifi />}
+                          {item.includes("TV") && <FaTv />}
+                          {item.includes("Parking") && <FaParking />}
+                          {item.includes("Extra Beds") && "🛏️"}
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="room-price">
+                    Price: {room.price} <span></span>
+                  </div>
                   <div className="room-footer">
-                    <span>{room.price}</span>
-                    <button className="cta-button">Book Now</button>
+                    <div className="action-buttons">
+                      <button
+                        className="call-button"
+                        onClick={() => navigate("/contact")} // Redirect to contact page
+                      >
+                        <i className="fas fa-phone"></i> Book Now
+                      </button>
+                      <button
+                        className="cta-button"
+                        onClick={() =>
+                          window.open(
+                            "https://wa.me/923425577821?text=Hello%20Gulshan%20Hotel%20Kachura,%20I'm%20interested%20in%20booking%20a%20room%20or%20tour%20package.%20Could%20you%20please%20share%20availability%20and%20details?",
+                            "_blank"
+                          )
+                        } // Open WhatsApp in new tab
+                      >
+                        <i className="fab fa-whatsapp"></i> WhatsApp
+                      </button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section> */}
-    <div className="rooms-container">
-        <div className="section-header">
-          <h1>LUXURIOUS & AFFORDABLE ROOMS AT OUR GUEST HOUSE IN ISLAMABAD</h1>
-        </div>
-        
-        <div className="rooms-grid">
-          {roomTypes.map((room, index) => (
-            <motion.div 
-              className="room-card" 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className="room-image">
-                <img 
-                  src={roomImages[index]} 
-                  alt={room.type} 
-                  loading="lazy"
-                />
-              </div>
-              <div className="room-content">
-                <div className="room-type">
-                  <span className="room-icon">{room.icon}</span>
-                  <h3>{room.type}</h3>
-                </div>
-                <p className="room-description">{room.description}</p>
-                
-                <div className="room-includes">
-                  <h4>Includes:</h4>
-                  <ul>
-                    {room.includes.map((item, i) => (
-                      <li key={i}>
-                        {item.includes("Breakfast") && <FaUtensils />}
-                        {item.includes("WiFi") && <FaWifi />}
-                        {item.includes("TV") && <FaTv />}
-                        {item.includes("Parking") && <FaParking />}
-                        {item.includes("Extra Beds") && "🛏️"}
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="room-footer">
-                  <div className="room-price">{room.price} <span></span></div>
-                  <button className="book-now-btn" onClick="#">
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-      {/* Contact Section */}
+  </div>
+</section>
       <section className="contact-section">
         <div className="container">
           <motion.h2
@@ -584,19 +533,19 @@ const roomImages = [
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div>
+            <div className="contact-card">
               <h3>Phone</h3>
               <a href="tel:+923425577821">
                 <FaPhone /> +92 342 5577821
               </a>
             </div>
-            <div>
+            <div className="contact-card">
               <h3>Email</h3>
               <a href="mailto:info@gulshanhotelkachura.com">
                 <FaEnvelope /> info@gulshanhotelkachura.com
               </a>
             </div>
-            <div>
+            <div className="contact-card">
               <h3>Address</h3>
               <p>
                 <FaMapMarkerAlt /> Kachura Lake, Skardu, Pakistan
@@ -605,76 +554,8 @@ const roomImages = [
           </motion.div>
         </div>
       </section>
-
-      {/* Footer Section */}
-      <footer className="footer-section">
-        <div className="container">
-          <div className="footer-grid">
-            <div>
-              <h3>Gulshan Hotel Kachura</h3>
-              <p>
-                <FaMapMarkerAlt /> Kachura Lake, Skardu, Pakistan
-              </p>
-              <p>
-                <FaPhone />
-                <a href="tel:+923425577821">+92 342 5577821</a>
-              </p>
-              <p>
-                <FaEnvelope />
-                <a href="mailto:info@gulshanhotelkachura.com">
-                  info@gulshanhotelkachura.com
-                </a>
-              </p>
-            </div>
-            <div>
-              <h3>Quick Links</h3>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">Location</a>
-                </li>
-                <li>
-                  <a href="#">Contact</a>
-                </li>
-               
-              </ul>
-            </div>
-            <div>
-              <h3>Newsletter</h3>
-              <p>Stay updated with our latest offers.</p>
-              <div className="newsletter-form">
-                <input type="email" placeholder="Your Email" />
-                <button className="cta-button">Subscribe</button>
-              </div>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>© 2025 Gulshan Hotel Kachura. All Rights Reserved.</p>
-            <p>
-              Developed by{" "}
-              <a
-                href="https://wa.me/923476903476"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Eng. Ghulam Rasool
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      {/* WhatsApp Floating Icon */}
-      <a
-        href="https://wa.me/+923425577821"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-float"
-      >
-        <FaWhatsapp />
-      </a>
+      <Footer />
+      <WhatsAppFeature />
 
       {/* Scroll to Top Button */}
       <AnimatePresence>

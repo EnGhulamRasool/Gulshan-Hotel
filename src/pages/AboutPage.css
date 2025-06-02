@@ -1,0 +1,428 @@
+:root {
+  --primary-color: #2e7d32;
+  --text-color: #333;
+  --white: #fff;
+  /* --light-gray: #f5f5f5; */
+  --border-color: #e0e0e0;
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.9);
+
+    --section-first-color: white;
+  --section-second-color: #f5f5f5;
+}
+
+/* Reset and Base Styles */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+}
+
+/* Banner Styles */
+.about-banner {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 19, 20, 0.5);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.banner-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.banner-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Container Styles */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 14px;
+}
+
+/* Responsive Container */
+@media (min-width: 992px) {
+  .container {
+    max-width: 92%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* Section Styles */
+.welcome-section,
+.why-choose-section,
+.registered-section,
+.services-section,
+.team-section {
+  padding: 43px 0;
+}
+
+.welcome-section {
+  background-color: var(--white);
+}
+
+.why-choose-section, .team-section {
+  background-color: var(--section-second-color);
+}
+
+.registered-section {
+  background-color: var(--white);
+}
+
+.services-section {
+  background-color: var(--light-gray);
+}
+
+/* .team-section {
+  background-color: var(--white);
+} */
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  /* margin-bottom: 40px; */
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-subtitle::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-color);
+  margin-left: 10px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Content Row Styles */
+.content-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.content-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.content-image {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+}
+
+.content-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.content-text {
+  flex: 1;
+  padding: 20px;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Image Overlay for Mountain Peaks */
+.image-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0 0 12px 12px;
+}
+
+.peak-label {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Team Grid Styles */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  padding: 20px 0;
+}
+
+.team-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 100%;
+     max-width: 601px;
+  text-align: center;
+  padding: 20px;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid var(--primary-color);
+}
+
+.team-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.team-title {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.team-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.team-email {
+  font-size: 0.9rem;
+  color: #444;
+  padding: 10px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* WhatsApp and Scroll-to-Top Buttons */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: var(--white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.scroll-top:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .banner-title {
+    font-size: 2.5rem;
+  }
+
+  .banner-description {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .content-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content-row.reverse {
+    flex-direction: column;
+  }
+
+  .content-image {
+    max-width: 100%;
+  }
+
+  .content-image img {
+    height: 300px;
+  }
+
+  .section-text {
+    font-size: 1rem;
+  }
+
+  .image-overlay {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .peak-label {
+    font-size: 0.8rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-banner {
+    height: 50vh;
+  }
+
+  .banner-title {
+    font-size: 2rem;
+  }
+
+  .banner-description {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .content-image img {
+    height: 250px;
+  }
+
+  .team-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .team-name {
+    font-size: 1.3rem;
+  }
+
+  .team-title {
+    font-size: 1rem;
+  }
+
+  .team-description {
+    font-size: 0.9rem;
+  }
+}

@@ -2,7 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaArrowUp, FaWhatsapp, FaSearch, FaExpand } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import "./GalleryPage.css";
-
+import Footer from "./Footer";
+import WhatsAppFeature from "../components/WhatsAppFeature";
 const GalleryPage = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -31,25 +32,25 @@ const GalleryPage = () => {
     id: 1,
     url: "/images/Skardu/skd-1.jpeg",
     category: "Skardu",
-    title: "Skardu Fort View"
+    title: "Skardu View"
   },
   {
     id: 2,
     url: "/images/Skardu/skd-2.jpeg",
     category: "Skardu",
-    title: "Skardu Valley"
+    title: "Sadpara Lake"
   },
   {
     id: 3,
     url: "/images/Skardu/skd-3.jpeg",
     category: "Skardu",
-    title: "Skardu Valley"
+    title: "Sadpara Village"
   },
   {
     id: 4,
     url: "/images/Skardu/skd-4.jpeg",
     category: "Skardu",
-    title: "Skardu Valley"
+    title: "Kharphocho (Skardu View Point)"
   },
   {
     id: 5,
@@ -73,73 +74,73 @@ const GalleryPage = () => {
     id: 8,
     url: "/images/Kachura/kachura-5.jpeg",
     category: "Kachura",
-    title: "Kachura Valley"
+    title: "Shangrila"
   },
     {
     id: 9,
     url: "/images/khp/khp-1.jpeg",
     category: "Khaplu",
-    title: "Khaplu Valley"
+    title: "Khaplu Sareena Fort(Khaplu Khar)"
   },
     {
     id: 10,
     url: "/images/khp/khp-2.jpeg",
     category: "Khaplu",
-    title: "Kachura Valley"
+    title: "Ghowari"
   },
    {
     id: 11,
     url: "/images/khp/khp-3.jpeg",
     category: "Khaplu",
-    title: "Kachura Valley"
+    title: "Ghowari Valley"
   },
     {
     id: 12,
     url: "/images/khp/khp-4.jpeg",
     category: "Khaplu",
-    title: "Kachura Valley"
+    title: "Saling Pull(Mashabrum View Point)"
   },
    {
     id: 13,
     url: "/images/shigar/shigar-1.jpeg",
     category: "Shigar",
-    title: "Kachura Valley"
+    title: "Shigar Valley"
   },
    {
     id: 14,
     url: "/images/shigar/shigar-2.jpeg",
     category: "Shigar",
-    title: "Kachura Valley"
+    title: "Shigar Gateway(Sarfaranga)"
   },
    {
     id: 15,
     url: "/images/shigar/shigar-3.jpeg",
     category: "Shigar",
-    title: "Kachura Valley"
+    title: "Blind Lake Shigar"
   },
    {
     id: 16,
     url: "/images/shigar/shigar-4.jpeg",
     category: "Shigar",
-    title: "Kachura Valley"
+    title: "Shigar Valley"
   },
   {
     id: 17,
     url: "/images/kharmang/kharmang-1.jpeg",
     category: "Kharmang",
-    title: "kharmang Valley"
+    title: "Manthoka Abshar"
   },
    {
     id: 18,
     url: "/images/kharmang/kharmang-2.jpeg",
     category: "Kharmang",
-    title: "kharmang Valley"
+    title: "Kharmang Valley"
   },
    {
     id: 19,
     url: "/images/kharmang/kharmang-3.jpeg",
     category: "Kharmang",
-    title: "kharmang Valley"
+    title: "Sheosar Abshar"
   },
    {
     id: 20,
@@ -176,7 +177,7 @@ const GalleryPage = () => {
             transition={{ duration: 0.8 }}
             className="banner-title"
           >
-            Northern Areas Gallery
+            Attractions
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -315,76 +316,8 @@ const GalleryPage = () => {
       </AnimatePresence>
 
       {/* Footer Section */}
-   <footer className="footer-section">
-         <div className="container">
-           <div className="footer-grid">
-             <div>
-               <h3>Gulshan Hotel Kachura</h3>
-               <p>
-                 <FaMapMarkerAlt /> Kachura Lake, Skardu, Pakistan
-               </p>
-               <p>
-                 <FaPhone />
-                 <a href="tel:+923425577821">+92 342 5577821</a>
-               </p>
-               <p>
-                 <FaEnvelope />
-                 <a href="mailto:info@gulshanhotelkachura.com">
-                   info@gulshanhotelkachura.com
-                 </a>
-               </p>
-             </div>
-             <div>
-               <h3>Quick Links</h3>
-               <ul>
-                 <li>
-                   <a href="#">Home</a>
-                 </li>
-                 <li>
-                   <a href="#">About</a>
-                 </li>
-                 <li>
-                   <a href="#">Rooms</a>
-                 </li>
-                 <li>
-                   <a href="#">Contact</a>
-                 </li>
-               </ul>
-             </div>
-             <div>
-               <h3>Newsletter</h3>
-               <p>Stay updated with our latest offers.</p>
-               <div className="newsletter-form">
-                 <input type="email" placeholder="Your Email" />
-                 <button className="cta-button">Subscribe</button>
-               </div>
-             </div>
-           </div>
-           <div className="footer-bottom">
-             <p>© 2025 Gulshan Hotel Kachura. All Rights Reserved.</p>
-             <p>
-               Developed by{" "}
-               <a
-                 href="https://wa.me/923476903476"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 Eng. Ghulam Rasool
-               </a>
-             </p>
-           </div>
-         </div>
-       </footer>
-
-      {/* WhatsApp Floating Icon */}
-      <a
-        href="https://wa.me/+923425577821"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-float"
-      >
-        <FaWhatsapp />
-      </a>
+  <Footer/>
+  <WhatsAppFeature/>
 
       {/* Scroll to Top Button */}
       <AnimatePresence>
